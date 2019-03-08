@@ -4,12 +4,18 @@
       <h1>Sallve Movies</h1>
       <form @submit.prevent="searchMovie" id="registeroffice">
         <input type="text" v-model="form.movieName" placeholder="Find a movie">
-        <label for="name">nome do filme</label>
-        <button type="submit">Buscar</button>
+        <label for="name">name of movie</label>
+        <button type="submit">Search</button>
       </form>
     </section>
+    <section v-else-if="movie.Error" class="movie--error">
+      <div class="movie__header">
+        <h1>{{ movie.Error }}</h1>
+      </div>
+      <button @click="cleanMovie">Voltar</button>
 
-    <section class="movie" v-else :aria-busy="loading ? 'true' : 'false'">
+    </section>
+    <section class="movie" :aria-busy="loading ? 'true' : 'false'" v-else>
       <div class="movie__header">
         <div class="movie__title">
             <h2>{{ movie.Title }}</h2>
