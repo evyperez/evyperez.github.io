@@ -12,7 +12,7 @@
       <div class="movie__header">
         <h1>{{ movie.Error }}</h1>
       </div>
-      <button @click="cleanMovie">Voltar</button>
+      <button @click="cleanMovie">Back</button>
 
     </section>
     <section class="movie" :aria-busy="loading ? 'true' : 'false'" v-else>
@@ -54,7 +54,7 @@
       </div>
 
       <div class="movie__footer">
-        <button @click="cleanMovie">Voltar</button>
+        <button @click="cleanMovie">Back</button>
       </div>
 
     </section>
