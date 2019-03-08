@@ -72,6 +72,38 @@ h1 {
   color: purple;
   text-transform: lowercase;
   font-weight: 600;
+	font-size: 3.5em;
+	animation: pulse 5s infinite;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+
+}
+
+@keyframes pulse {
+  0% {
+    color: palette('logo', 'orange');
+	}
+  15% {
+    color: palette('logo', 'pink');
+	}
+  30% {
+    color: palette('logo', 'salmon');
+	}
+  45% {
+    color: palette('logo', 'blue');
+	}
+  60% {
+    color: palette('logo', 'rose');
+	}
+  75% {
+    color: palette('logo', 'green');
+	}
+  95% {
+    color: palette('logo', 'purple');
+	}
+  100% {
+    color: palette('logo', 'orange');
+	}
 }
 
 p {
