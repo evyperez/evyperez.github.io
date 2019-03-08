@@ -18,7 +18,7 @@ export default new Vuex.Store({
     GET_MOVIE: ({ commit }, payload) => new Promise((resolve, reject) => {
       console.log(payload);
       axios
-        .get(`http://www.omdbapi.com/?t=${payload.movie}&apikey=8fcef95b`)
+        .get(`https://www.omdbapi.com/?t=${payload.movie}&apikey=8fcef95b`)
         .then(
           (response) => {
             resolve(response);
