@@ -117,9 +117,12 @@ body {
   min-height: 100%;
 
   margin: 0;
-  overflow: visible;
 
-  color: palette('black');
+	color: palette('black');
+	overflow: overlay;
+
+	background-image: url('../assets/images/light-veneer.png');
+	background-repeat: repeat;
 
   > * {
       flex-shrink: 0; /* 1 */
