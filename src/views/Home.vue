@@ -44,11 +44,10 @@
 
           <div class="movie__ratings">
             <h3>Ratings</h3>
-              <div v-for="(Ratings, index) in movie.Ratings" :key="index">
+              <div v-for="(Ratings, index) in movie.Ratings" :key="index" class="movie__rating">
                 <h4>{{ Ratings.Source }}</h4>
-                <p>{{ Ratings.Value }}
-                </p>
-
+                  <stars-rating v-if="Ratings.Source === 'Internet Movie Database'" :propRating="parseInt(Ratings.Value, 10)" :config="config"></stars-rating>
+                  <stars-rating v-else :propRating="parseInt(Ratings.Value, 10) / 10" :config="config"></stars-rating>
               </div>
           </div>
         </div>
@@ -62,20 +61,35 @@
   </div>
 </template>
 <script>
+import starsRating from "../components/starsRating";
+
 
 export default {
   name: "home",
+  components: {
+    starsRating,
+  },
+
     data() {
       return {
         form: {
           movieName: '',
+        },
+       config: {
+          isIndicatorActive: true,
+          style: {
+            fullStarColor: "#ed8a19",
+            emptyStarColor: "#737373",
+            starWidth: 15,
+            starHeight: 15
+          }
         },
         loading: false,
       };
     },
   computed: {
     movie() {
-      return this.$store.state.movie || lala;
+      return this.$store.state.movie;
     },
   },
   methods: {

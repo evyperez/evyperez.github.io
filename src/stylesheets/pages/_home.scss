@@ -74,13 +74,12 @@
 
 .movie__img {
 	flex-basis: 100%;
-	max-width: 300px;
+	max-width: 250px;
 	height: auto;
 	display: block;
 	height: auto;
 	margin-right: 1em;
 	align-self: center;
-
 
 	@media (min-width: breakpoint('tablet')) {
 		width: 25%;
@@ -92,7 +91,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
-	flex: 1;
 	margin-top: 1em;
 
 	@media (min-width: breakpoint('tablet')) {
@@ -108,11 +106,16 @@
 
 .movie__ratings h3 {
 	width: 100%;
+	margin-bottom: 0.5em;
 }
 
-.movie__ratings div {
-	margin-top: 0.5em;
+.movie__ratings .movie__rating {
 	margin-right: 1.5em;
+	margin-top: 0.5em;
+
+	@media (min-width: breakpoint('tablet')) {
+		margin-top: 0;
+	}
 }
 
 .movie__info img {
