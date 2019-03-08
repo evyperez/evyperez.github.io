@@ -1,10 +1,10 @@
 <template>
   <div class="content">
-    <section v-if="Object.entries(movie).length === 0" class="movie--search">
+    <section v-if="Object.entries(movie).length === 0" class="search">
       <h1>Sallve Movies</h1>
       <form @submit.prevent="searchMovie" id="registeroffice">
         <input type="text" v-model="form.movieName" placeholder="Find a movie" required>
-        <label for="name">name of movie</label>
+        <label for="name">Find movie</label>
         <button type="submit">Search</button>
       </form>
     </section>

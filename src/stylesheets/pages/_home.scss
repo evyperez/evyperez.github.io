@@ -11,10 +11,18 @@
 	}
 }
 
-.movie--search {
+.search {
+	margin: auto;
+	margin-top: -5em;
+
+	@media (min-width: breakpoint('tablet')) {
+		margin-top: -8em;
+	}
+
 	@media (min-width: breakpoint('desktop')) {
-		padding: 4em;
-	}}
+		max-width: 800px;
+	}
+}
 
 .movie {
 	display: flex;
