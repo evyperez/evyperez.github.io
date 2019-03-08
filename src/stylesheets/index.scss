@@ -26,10 +26,13 @@
 @import
 'layout/main',
 'layout/header',
+'layout/form',
 'layout/footer';
 
 // 5. Components
-// @import
+@import
+'components/buttons',
+'components/text-field';
 
 // 6. Page-specific styles
 @import
