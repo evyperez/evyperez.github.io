@@ -3,7 +3,7 @@
     <section v-if="Object.entries(movie).length === 0">
       <h1>Sallve Movies</h1>
       <form @submit.prevent="searchMovie" id="registeroffice">
-        <input type="text" v-model="form.movieName" placeholder="Find a movie">
+        <input type="text" v-model="form.movieName" placeholder="Find a movie" required>
         <label for="name">name of movie</label>
         <button type="submit">Search</button>
       </form>
@@ -46,7 +46,9 @@
             <h3>Ratings</h3>
               <div v-for="(Ratings, index) in movie.Ratings" :key="index">
                 <h4>{{ Ratings.Source }}</h4>
-                <p>{{ Ratings.Value }}</p>
+                <p>{{ Ratings.Value }}
+                </p>
+
               </div>
           </div>
         </div>
@@ -60,6 +62,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "home",
     data() {
@@ -83,6 +86,8 @@ export default {
       this.$store.commit('SET_MOVIE', {});
     },
     searchMovie() {
+      this.toggleLoading();
+
       const payload = {};
 
       if (this.form.movieName) {
@@ -90,10 +95,10 @@ export default {
       }
       this.$store.dispatch('GET_MOVIE', payload)
         .then(() => {
-          this.toggleSubmitLoading();
+          this.toggleLoading();
         })
         .catch((error) => {
-          this.toggleSubmitLoading();
+          this.toggleLoading();
         });
 
     }
