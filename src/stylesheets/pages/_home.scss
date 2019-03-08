@@ -11,6 +11,11 @@
 	}
 }
 
+.movie--search {
+	@media (min-width: breakpoint('desktop')) {
+		padding: 4em;
+	}}
+
 .movie {
 	display: flex;
 	flex-wrap: wrap;

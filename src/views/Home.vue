@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <section v-if="Object.entries(movie).length === 0">
+    <section v-if="Object.entries(movie).length === 0" class="movie--search">
       <h1>Sallve Movies</h1>
       <form @submit.prevent="searchMovie" id="registeroffice">
         <input type="text" v-model="form.movieName" placeholder="Find a movie" required>
