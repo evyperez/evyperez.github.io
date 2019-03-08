@@ -1,0 +1,38 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+
+/* CLASSES
+============================================================================ */
+%loading-bg {
+	background-image: url('../assets/images/loading.svg');
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-color: palette('loading', 'background');
+}
+
+%loading-el {
+	overflow: hidden;
+
+	cursor: wait;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		z-index: layer('modal');
+
+		content: '';
+	}
+}
+
+[aria-busy='true'] {
+	> body,
+	&:not(html):not([type='submit']) {
+		@extend %loading-bg;
+		@extend %loading-el;
+	}
+}
