@@ -123,16 +123,25 @@ $palette: (
     'highlight': rgb(0, 0, 0),
     'text': rgb(255, 255, 255),
     'description': rgb(153, 153, 153),
-
+	),
+  'logo': (
+    'orange': rgb(254, 81, 49),
+    'pink': rgb(253, 170, 255),
+    'salmon': rgb(255, 200, 180),
+    'blue': rgb(152, 193, 255),
+    'rose': rgb(255, 200, 180),
+    'green': rgb(216, 255, 110),
+    'purple': rgb(159, 119, 255),
   ),
   'border': (
     'base': rgb(192, 192, 192),
     'focus': rgb(0, 0 , 0),
     ),
   'button': (
-    'base': rgb(0, 0, 0),
+    'base': rgb(253, 170, 255),
     'focus': rgb(10, 10, 10),
     'slider': hsl(0, 0%, 40%),
+    'disabled': hsl(0, 0%, 40%),
     'submit': rgb(217, 83, 79),
     'reset': transparent,
   ),
@@ -167,12 +176,22 @@ $palette: (
   ),
   'tap-highlight': rgb(255, 94, 153),
   'target-highlight': rgb(255, 255, 102),
+  'form': (
+    'background': rgb(255, 255, 255),
+  ),
   'text': (
     'dark': rgb(26, 29, 32),
     'light': rgb(229, 231, 234),
+    'gray': rgb(204, 204, 204),
   ),
 );
 
+
+// Forms
+$form-rounded-corner: 50px;
+$form-font-size: 1em;
+$form-padding: 1em;
+$form-height: 50px;
 
 /// Default border-radius
 /// @todo Customize it to match your design.
