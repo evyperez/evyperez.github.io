@@ -2,12 +2,15 @@
   <div class="content">
     <h1>Sallve Movies</h1>
     <form @submit.prevent="searchMovie" id="registeroffice">
-      <label for="name">Nome</label>
+      <label for="name">nome do filme</label>
       <input type="text" v-model="form.movie"  placeholder="Find a movie">
-      <button type="submit">Find a movie</button>
-
-      {{ movie }}
+      <button type="submit">Buscar</button>
     </form>
+    <section class="movie">
+      {{ movie }}
+
+    </section>
+
   </div>
 </template>
 <script>
