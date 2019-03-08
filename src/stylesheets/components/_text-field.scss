@@ -109,27 +109,3 @@
 [type='url'] {
 	@extend %text-field-reset;
 }
-
-/* textareas
----------------------------------------------------------------------------- */
-/*
- * 1. Removes default vertical scrollbar in IE6/7/8/9
- * 2. Improves readability and alignment in all browsers
- * sobral, veja o 2!
- */
-textarea {
-	@extend %text-field-reset;
-
-	overflow: auto; /* 1 */
-
-	line-height: inherit;
-
-	border-top-right-radius: $form-rounded-corner !important;
-	border-top-left-radius: $form-rounded-corner !important;
-	border-bottom-left-radius: $form-rounded-corner !important;
-	min-height: $form-height;
-	background-color: palette('form', 'background');
-
-	cursor: text;
-
-}
