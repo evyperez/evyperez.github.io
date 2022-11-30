@@ -1,6 +1,8 @@
-# Sallve Movies
+# Movie List
 
-> Powered by Vue.js
+This site is an example of how to make an API request using Vue.Js.
+
+This example has a movie search input using [omdbapi](https://www.omdbapi.com) api
 
 ## Build Setup
 
