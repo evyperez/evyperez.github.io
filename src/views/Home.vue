@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <section v-if="Object.entries(movie).length === 0" class="search">
-      <h1>Sallve Movies</h1>
+      <h1>Movies</h1>
       <form @submit.prevent="searchMovie" id="registeroffice">
         <input type="text" v-model="form.movieName" placeholder="Find a movie" required>
         <label for="name">Find movie</label>
@@ -12,24 +12,22 @@
       <div class="movie__header">
         <h1>{{ movie.Error }}</h1>
       </div>
-      <button @click="cleanMovie">Back</button>
+      <button type="button" @click="cleanMovie">Back</button>
 
     </section>
     <section class="movie" :aria-busy="loading ? 'true' : 'false'" v-else>
       <div class="movie__header">
         <div class="movie__title">
-            <h2>{{ movie.Title }}</h2>
+          <h2>{{ movie.Title }}</h2>
         </div>
         <div class="movie__subtitle">
-            <p>{{ movie.Released }}</p>
-            <p>{{ movie.Genre }}</p>
+          <p>{{ movie.Released }}</p>
+          <p>{{ movie.Genre }}</p>
         </div>
       </div>
-
-
       <div class="movie__body">
         <div class="movie__img">
-          <img :src="movie.Poster">
+          <img :src="movie.Poster" :alt="'image' + movie.Title">
         </div>
 
         <div class="movie__text">
@@ -44,49 +42,48 @@
 
           <div class="movie__ratings">
             <h3>Ratings</h3>
-              <div v-for="(Ratings, index) in movie.Ratings" :key="index" class="movie__rating">
-                <h4>{{ Ratings.Source }}</h4>
-                  <stars-rating v-if="Ratings.Source === 'Internet Movie Database'" :propRating="parseInt(Ratings.Value, 10)" :config="config"></stars-rating>
-                  <stars-rating v-else :propRating="parseInt(Ratings.Value, 10) / 10" :config="config"></stars-rating>
-              </div>
+            <div v-for="(Ratings, index) in movie.Ratings" :key="index" class="movie__rating">
+              <h4>{{ Ratings.Source }}</h4>
+              <stars-rating v-if="Ratings.Source === 'Internet Movie Database'" :propRating="parseInt(Ratings.Value, 10)" :config="config" />
+              <stars-rating v-else :propRating="parseInt(Ratings.Value, 10) / 10" :config="config" />
+            </div>
           </div>
         </div>
       </div>
 
       <div class="movie__footer">
-        <button @click="cleanMovie">Back</button>
+        <button type="button" @click="cleanMovie">Back</button>
       </div>
 
     </section>
   </div>
 </template>
 <script>
-import starsRating from "../components/starsRating";
-
+import starsRating from '../components/starsRating.vue';
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
     starsRating,
   },
 
-    data() {
-      return {
-        form: {
-          movieName: '',
+  data() {
+    return {
+      form: {
+        movieName: '',
+      },
+      config: {
+        isIndicatorActive: true,
+        style: {
+          fullStarColor: '#ed8a19',
+          emptyStarColor: '#737373',
+          starWidth: 15,
+          starHeight: 15,
         },
-       config: {
-          isIndicatorActive: true,
-          style: {
-            fullStarColor: "#ed8a19",
-            emptyStarColor: "#737373",
-            starWidth: 15,
-            starHeight: 15
-          }
-        },
-        loading: false,
-      };
-    },
+      },
+      loading: false,
+    };
+  },
   computed: {
     movie() {
       return this.$store.state.movie;
@@ -111,11 +108,10 @@ export default {
         .then(() => {
           this.toggleLoading();
         })
-        .catch((error) => {
+        .catch(() => {
           this.toggleLoading();
         });
-
-    }
+    },
   },
 };
 </script>
